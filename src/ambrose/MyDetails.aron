@@ -1,0 +1,20 @@
+# ARON 0.1
+
+include Details.aron
+
+import ambrose.DetailsHandler
+import martini.util.DB
+
+handler:DetailsHandler 
+(
+	db DB 
+	(
+		driver "org.h2.Driver"
+		url "jdbc:h2:tcp://localhost:9092/~/git/martini/db/cm"
+		username "sa"
+		password ""
+	)
+)
+
+
+@page.handler @handler 

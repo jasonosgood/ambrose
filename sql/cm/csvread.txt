@@ -1,0 +1,2 @@
+CREATE TABLE Course AS
+SELECT * FROM CSVREAD('/Users/jasonosgood/Downloads/all_cm20etl_20131129_uwsdb.csv', null, 'fieldSeparator=' || CHAR(9));
