@@ -1,0 +1,1 @@
+GET /course/{dept}/{number}/{lastATP}

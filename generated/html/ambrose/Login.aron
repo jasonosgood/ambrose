@@ -1,0 +1,15 @@
+# ARON 0.1
+
+import ambrose.Login
+import ambrose.LoginCredentialsForm
+
+page:Login
+(
+	title " Ambrose - Login "
+	status " Status Message Here "
+	credentialsForm LoginCredentialsForm
+	(
+		username ""
+		password ""
+	)
+)

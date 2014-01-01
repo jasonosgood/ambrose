@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Course</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<h1 class="col-sm-offset-2">Course Details</h1>
+		<form martini="Details" method="post" class="form-horizontal" role="form">
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Campus</label>
+			    <div class="col-xs-3">
+					<select name="campus" class="form-control">
+						<option value="0" selected="selected">Seattle</option>
+						<option value="1">Tacoma</option>
+						<option value="2">Bothell</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">College</label>
+			    <div class="col-xs-3">
+					<select name="college" class="form-control">
+						<option selected="selected">Arts & Sciences</option>
+						<option>Built Environments</option>
+						<option>Business</option>
+						<option>Dentistry</option>
+						<option>Education</option>
+						<option>Engineering</option>
+						<option>Environment</option>
+						<option>Forest Resources</option>
+						<option>Information School</option>
+						<option>Law</option>
+						<option>Medicine</option>
+						<option>Nursing</option>
+						<option>Ocean & Fishery Sciences</option>
+						<option>Pharmacy</option>
+						<option>Public Affairs</option>
+						<option>Public Health</option>
+						<option>Social Work</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Department</label>
+			    <div class="col-xs-3">
+					<select name="dept" class="form-control">
+						<option selected="selected">Arts</option>
+						<option>Biology</option>
+						<option>Chemistry</option>
+						<option>Dance</option>
+						<option>English</option>
+						<option>History</option>
+						<option>Physics</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Code</label>
+			    <div class="col-xs-4">
+					<input type="text" style="display: inline; width: 40%;" class="form-control" name="abbrev" placeholder="ENGL" value="" />
+					<input type="text" style="display: inline; width: 40%;" class="form-control" name="number" placeholder="000" value="" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Catalog</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="catalog" placeholder="Catalog title" value="" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Transcript</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="transcript" placeholder="Transcript title, max 40 chars" value="">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Description</label>
+			    <div class="col-sm-10">
+			    	<textarea name="description" class="form-control" rows="3" placeholder="Ipsum lorem"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Credits</label>
+			    <div class="col-xs-9">
+					<select style="display: inline; width: auto;" name="credits" class="form-control">
+						<option value="0" selected="selected">Fixed</option>
+						<option value="1">Range</option>
+						<option value="2">Multiple</option>
+					</select>
+					<input type="text" style="display: inline; width: 10%;" class="form-control" name="creditsMin" placeholder="1" size="2" value="">
+					<input type="text" style="display: inline; width: 10%;" class="form-control" name="creditsMax" placeholder="1" size="2" value="">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Grading</label>
+			    <div class="col-xs-3">
+					<select name="grading" style="width: auto;" class="form-control">
+						<option value="0" selected="selected">Standard</option>
+						<option value="1">Credit / No credit</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Start Term</label>
+			    <div class="col-sm-8">
+					<input type="text" style="display: inline; width: auto;" class="form-control" name="startYear" size="4" placeholder="2013" value="">
+					<select name="startTerm " style="display: inline; width: auto;" class="form-control">
+						<option value="1" selected="selected">Autumn</option>
+						<option value="2">Winter</option>
+						<option value="3">Spring</option>
+						<option value="4">Summer</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">End Term</label>
+			    <div class="col-sm-8">
+					<input type="text" style="display: inline; width: auto;" class="form-control" name="endYear" placeholder="9999" size="4" value="">
+					<select name="endTerm" style="display: inline; width: auto;" class="form-control">
+						<option value="1" selected="selected">Autumn</option>
+						<option value="2">Winter</option>
+						<option value="3">Spring</option>
+						<option value="4">Summer</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Gen Ed Reqs</label>
+			    <div class="col-sm-8">
+					<label class="checkbox">
+						<input type="checkbox" name="gened_is" value="is" />
+						Individuals &amp; Societies
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" name="gened_nw" value="nw" />
+						The Natural World
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" name="gened_vpla" value="vlpa" />
+						Visual, Literary, and Performing Arts
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" name="gened_writing" value="writing" />
+						Additional Writing
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" name="gened_div" value="div" />
+						Diversity
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" name="gened_comp" value="comp" />
+						English Composition
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" name="gened_qsr" value="qsr" />
+						Quantitative, Symbolic, or Formal Reasoning
+					</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-8">
+					<button type="submit" class="btn">Save</button>
+				</div>
+			</div>
+  			<input type="hidden" name="id" value="0">
+			
+		</form>
+	</div>
+</body>
+</html>

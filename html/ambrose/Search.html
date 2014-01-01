@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ambrose Course Catalog</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="assets/css/bootstrap.css" rel="stylesheet"/> 
+</head>
+<body>
+	<div class="container">
+		<h1>Ambrose</h1>
+		<form martini="search" method="get" class="form-horizontal">
+		    <div class="input-group">
+				<input type="text" class="form-control" name="q" placeholder="Search course catalog" value="">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"/></button>
+				</span>
+		    </div>
+			<input type="hidden" name="start" value="0"/>
+		</form>
+		<div martini="metrics">%d Results</div>
+		<ul martini="results" class="list-unstyled">
+			<li>
+				<br/>
+				<a martini="link" href="/course">
+					<span martini="course">B EDUC 541</span>
+					<span martini="catalog">SECOND LANGUAGE ACQUISITION, BILINGUAL EDUCATION, AND THE STRUCTURE OF ENGLISH</span>
+				</a>
+				<div martini="description">Focuses on theories in second language acquisition...</div>
+				<!-- <div style="display=none;"> <span martini="campus"> Bothell </span> <span martini="atps"> 1980/4 - 9999/4 </span> </div> -->
+			</li>
+		</ul>
+		<br/>
+		<ul martini="pages" class="pagination">
+			<li class="disabled"><a martini="nth" href="#">&laquo;</a></li>
+			<li class="active"><a martini="nth" href="#">1</a></li>
+			<li><a martini="nth" href="#">2</a></li>
+			<li><a martini="nth" href="#">3</a></li>
+			<li><a martini="nth" href="#">4</a></li>
+			<li><a martini="nth" href="#">5</a></li>
+			<li><a martini="nth" href="#">&raquo;</a></li>
+		</ul>
+ 	</div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+# ARON 0.1
+
+import ambrose.Details
+import ambrose.DetailsDetailsForm
+import martini.model.Select
+import martini.model.Option
+
+page:Details
+(
+	title "Course"
+	detailsForm DetailsDetailsForm
+	(
+		abbrev ""
+		number ""
+		catalog ""
+		transcript ""
+		creditsMin ""
+		creditsMax ""
+		startYear ""
+		endYear ""
+		gened_is false
+		gened_nw false
+		gened_vpla false
+		gened_writing false
+		gened_div false
+		gened_comp false
+		gened_qsr false
+		id "0"
+		campus 
+		[
+			Option
+			(
+				value "0"
+				text "Seattle"
+				selected true
+			)
+			Option
+			(
+				value "1"
+				text "Tacoma"
+			)
+			Option
+			(
+				value "2"
+				text "Bothell"
+			)
+		]
+		college 
+		[
+			Option
+			(
+				text "Arts & Sciences"
+				selected true
+			)
+			Option
+			(
+				text "Built Environments"
+			)
+			Option
+			(
+				text "Business"
+			)
+			Option
+			(
+				text "Dentistry"
+			)
+			Option
+			(
+				text "Education"
+			)
+			Option
+			(
+				text "Engineering"
+			)
+			Option
+			(
+				text "Environment"
+			)
+			Option
+			(
+				text "Forest Resources"
+			)
+			Option
+			(
+				text "Information School"
+			)
+			Option
+			(
+				text "Law"
+			)
+			Option
+			(
+				text "Medicine"
+			)
+			Option
+			(
+				text "Nursing"
+			)
+			Option
+			(
+				text "Ocean & Fishery Sciences"
+			)
+			Option
+			(
+				text "Pharmacy"
+			)
+			Option
+			(
+				text "Public Affairs"
+			)
+			Option
+			(
+				text "Public Health"
+			)
+			Option
+			(
+				text "Social Work"
+			)
+		]
+		dept 
+		[
+			Option
+			(
+				text "Arts"
+				selected true
+			)
+			Option
+			(
+				text "Biology"
+			)
+			Option
+			(
+				text "Chemistry"
+			)
+			Option
+			(
+				text "Dance"
+			)
+			Option
+			(
+				text "English"
+			)
+			Option
+			(
+				text "History"
+			)
+			Option
+			(
+				text "Physics"
+			)
+		]
+		credits 
+		[
+			Option
+			(
+				value "0"
+				text "Fixed"
+				selected true
+			)
+			Option
+			(
+				value "1"
+				text "Range"
+			)
+			Option
+			(
+				value "2"
+				text "Multiple"
+			)
+		]
+		grading 
+		[
+			Option
+			(
+				value "0"
+				text "Standard"
+				selected true
+			)
+			Option
+			(
+				value "1"
+				text "Credit / No credit"
+			)
+		]
+		startTerm 
+		[
+			Option
+			(
+				value "1"
+				text "Autumn"
+				selected true
+			)
+			Option
+			(
+				value "2"
+				text "Winter"
+			)
+			Option
+			(
+				value "3"
+				text "Spring"
+			)
+			Option
+			(
+				value "4"
+				text "Summer"
+			)
+		]
+		endTerm 
+		[
+			Option
+			(
+				value "1"
+				text "Autumn"
+				selected true
+			)
+			Option
+			(
+				value "2"
+				text "Winter"
+			)
+			Option
+			(
+				value "3"
+				text "Spring"
+			)
+			Option
+			(
+				value "4"
+				text "Summer"
+			)
+		]
+		description ""
+	)
+)

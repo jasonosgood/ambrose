@@ -1,0 +1,66 @@
+# ARON 0.1
+
+import ambrose.Search
+import ambrose.SearchSearchForm
+import ambrose.SearchResultsItem
+import ambrose.SearchPagesItem
+
+page:Search
+(
+	title "Ambrose Course Catalog"
+	metrics "%d Results"
+	searchForm SearchSearchForm
+	(
+		q ""
+		start "0"
+	)
+	results
+	[
+		SearchResultsItem
+		(
+			description "Focuses on theories in second language acquisition..."
+			course "B EDUC 541"
+			catalog "SECOND LANGUAGE ACQUISITION, BILINGUAL EDUCATION, AND THE STRUCTURE OF ENGLISH"
+			link ""
+			linkHref "/course"
+		)
+	]
+	pages
+	[
+		SearchPagesItem
+		(
+			nth "?"
+			nthHref "#"
+		)
+		SearchPagesItem
+		(
+			nth "1"
+			nthHref "#"
+		)
+		SearchPagesItem
+		(
+			nth "2"
+			nthHref "#"
+		)
+		SearchPagesItem
+		(
+			nth "3"
+			nthHref "#"
+		)
+		SearchPagesItem
+		(
+			nth "4"
+			nthHref "#"
+		)
+		SearchPagesItem
+		(
+			nth "5"
+			nthHref "#"
+		)
+		SearchPagesItem
+		(
+			nth "?"
+			nthHref "#"
+		)
+	]
+)
