@@ -1,0 +1,1055 @@
+12-02 19:11:12 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	SMALLINT,	
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH	INT	,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT	
+CREDIT_CONTROL[*]	INT	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL,
+APPROVED_DT	DATETIME,	
+CHANGED_DT	DATETIME,	
+DROPPED_DT	DATETIME,	
+LAST_UPDATE_DT	DATETIME,	
+SR_CRS_DL_APPR_DT	DATETIME,
+DEDUCTIBLE	BIT,
+HONORS	BIT,
+DUP_ENROLL	BIT,
+COURSE_TS_OMIT	BIT,
+COURSE_CAT_OMIT	BIT,
+WRITING_CRS	BIT,
+ENGLISH_COMP	BIT,
+QSR	BIT,
+VIS_LIT_PERF_ARTS	BIT,	
+INDIV_SOCIETY	BIT,
+NATURAL_WORLD	BIT,
+DIVERSITY_CRS	BIT,
+HYPHEN_TYPE	SMALLINT,
+PRIOR_DEPT_ABBR	CHAR,
+PRIOR_COURSE_NUM	INT
+RESP_CURRIC_ABBR	CHAR,
+RESP_COURSE_NO	INT,
+GORP VARCHAR(255)
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+
+department_abbrev	char,	
+course_number	smallint,	
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch	int	,
+lastATP	int,
+firstATP	int,
+grading_system	int	
+credit_control	int	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal,
+approved_dt	datetime,	
+changed_dt	datetime,	
+dropped_dt	datetime,	
+last_update_dt	datetime,	
+sr_crs_dl_appr_dt	datetime,
+deductible	bit,
+honors	bit,
+dup_enroll	bit,
+course_ts_omit	bit,
+course_cat_omit	bit,
+writing_crs	bit,
+english_comp	bit,
+qsr	bit,
+vis_lit_perf_arts	bit,	
+indiv_society	bit,
+natural_world	bit,
+diversity_crs	bit,
+hyphen_type	smallint,
+prior_dept_abbr	char,
+prior_course_num	int
+resp_curric_abbr	char,
+resp_course_no	int,
+gorp VARCHAR(255)
+) [42001-163]
+12-02 19:13:34 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "DEPARTMENT_ABBREV"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch	int	,
+lastATP	int,
+firstATP	int,
+grading_system	int	
+credit_control	int	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal,
+approved_dt	datetime,	
+changed_dt	datetime,	
+dropped_dt	datetime,	
+last_update_dt	datetime,	
+sr_crs_dl_appr_dt	datetime
+) [50004-163]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:3650)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3513)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5183)
+	at org.h2.command.Parser.parseCreate(Parser.java:3807)
+	at org.h2.command.Parser.parsePrepared(Parser.java:324)
+	at org.h2.command.Parser.parse(Parser.java:279)
+	at org.h2.command.Parser.parse(Parser.java:251)
+	at org.h2.command.Parser.prepareCommand(Parser.java:217)
+	at org.h2.engine.Session.prepareLocal(Session.java:415)
+	at org.h2.engine.Session.prepareCommand(Session.java:364)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1121)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:164)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1311)
+	at org.h2.server.web.WebApp.query(WebApp.java:1001)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:964)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:967)
+	at org.h2.server.web.WebThread.process(WebThread.java:166)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:744)
+12-02 19:13:49 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	INT,
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH	INT	,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT	
+CREDIT_CONTROL[*]	INT	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL,
+APPROVED_DT	DATETIME,	
+CHANGED_DT	DATETIME,	
+DROPPED_DT	DATETIME,	
+LAST_UPDATE_DT	DATETIME,	
+SR_CRS_DL_APPR_DT	DATETIME
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch	int	,
+lastATP	int,
+firstATP	int,
+grading_system	int	
+credit_control	int	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal,
+approved_dt	datetime,	
+changed_dt	datetime,	
+dropped_dt	datetime,	
+last_update_dt	datetime,	
+sr_crs_dl_appr_dt	datetime
+) [42001-163]
+12-02 19:14:11 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	INT,
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH	INT	,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT	
+CREDIT_CONTROL[*]	INT	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch	int	,
+lastATP	int,
+firstATP	int,
+grading_system	int	
+credit_control	int	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal
+) [42001-163]
+12-02 19:14:25 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	INT,
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH INT,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT	
+CREDIT_CONTROL[*]	INT	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch int,
+lastATP	int,
+firstATP	int,
+grading_system	int	
+credit_control	int	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal
+) [42001-163]
+12-02 19:15:31 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	INT,
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH INT,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT,	
+CREDIT_CONTROL	INT,	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL,
+APPROVED_DT	DATETIME,	
+CHANGED_DT	DATETIME,	
+DROPPED_DT	DATETIME,	
+LAST_UPDATE_DT	DATETIME,	
+SR_CRS_DL_APPR_DT	DATETIME,
+DEDUCTIBLE	BIT,
+HONORS	BIT,
+DUP_ENROLL	BIT,
+COURSE_TS_OMIT	BIT,
+COURSE_CAT_OMIT	BIT,
+WRITING_CRS	BIT,
+ENGLISH_COMP	BIT,
+QSR	BIT,
+VIS_LIT_PERF_ARTS	BIT,	
+INDIV_SOCIETY	BIT,
+NATURAL_WORLD	BIT,
+DIVERSITY_CRS	BIT,
+HYPHEN_TYPE	SMALLINT,
+PRIOR_DEPT_ABBR	CHAR,
+PRIOR_COURSE_NUM	INT
+RESP_CURRIC_ABBR[*]	CHAR,
+RESP_COURSE_NO	INT
+
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch int,
+lastATP	int,
+firstATP	int,
+grading_system	int,	
+credit_control	int,	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal,
+approved_dt	datetime,	
+changed_dt	datetime,	
+dropped_dt	datetime,	
+last_update_dt	datetime,	
+sr_crs_dl_appr_dt	datetime,
+deductible	bit,
+honors	bit,
+dup_enroll	bit,
+course_ts_omit	bit,
+course_cat_omit	bit,
+writing_crs	bit,
+english_comp	bit,
+qsr	bit,
+vis_lit_perf_arts	bit,	
+indiv_society	bit,
+natural_world	bit,
+diversity_crs	bit,
+hyphen_type	smallint,
+prior_dept_abbr	char,
+prior_course_num	int
+resp_curric_abbr	char,
+resp_course_no	int
+
+) [42001-163]
+12-02 19:15:59 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	INT,
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH INT,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT,	
+CREDIT_CONTROL	INT,	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL,
+APPROVED_DT	DATETIME,	
+CHANGED_DT	DATETIME,	
+DROPPED_DT	DATETIME,	
+LAST_UPDATE_DT	DATETIME,	
+SR_CRS_DL_APPR_DT	DATETIME,
+DEDUCTIBLE	BIT,
+HONORS	BIT,
+DUP_ENROLL	BIT,
+COURSE_TS_OMIT	BIT,
+COURSE_CAT_OMIT	BIT,
+WRITING_CRS	BIT,
+ENGLISH_COMP	BIT,
+QSR	BIT,
+VIS_LIT_PERF_ARTS	BIT,	
+INDIV_SOCIETY	BIT,
+NATURAL_WORLD	BIT,
+DIVERSITY_CRS	BIT,
+HYPHEN_TYPE	INT,
+PRIOR_DEPT_ABBR	CHAR,
+PRIOR_COURSE_NUM	INT
+RESP_CURRIC_ABBR[*]	CHAR,
+RESP_COURSE_NO	INT
+
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch int,
+lastATP	int,
+firstATP	int,
+grading_system	int,	
+credit_control	int,	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal,
+approved_dt	datetime,	
+changed_dt	datetime,	
+dropped_dt	datetime,	
+last_update_dt	datetime,	
+sr_crs_dl_appr_dt	datetime,
+deductible	bit,
+honors	bit,
+dup_enroll	bit,
+course_ts_omit	bit,
+course_cat_omit	bit,
+writing_crs	bit,
+english_comp	bit,
+qsr	bit,
+vis_lit_perf_arts	bit,	
+indiv_society	bit,
+natural_world	bit,
+diversity_crs	bit,
+hyphen_type	int,
+prior_dept_abbr	char,
+prior_course_num	int
+resp_curric_abbr	char,
+resp_course_no	int
+
+) [42001-163]
+12-02 19:17:01 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	INT,
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH INT,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT,	
+CREDIT_CONTROL	INT,	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL,
+APPROVED_DT	DATETIME,	
+CHANGED_DT	DATETIME,	
+DROPPED_DT	DATETIME,	
+LAST_UPDATE_DT	DATETIME,	
+SR_CRS_DL_APPR_DT	DATETIME,
+DEDUCTIBLE	BOOLEAN,
+HONORS	BOOLEAN,
+DUP_ENROLL	BOOLEAN,
+COURSE_TS_OMIT	BOOLEAN,
+COURSE_CAT_OMIT	BOOLEAN,
+WRITING_CRS	BOOLEAN,
+ENGLISH_COMP	BOOLEAN,
+QSR	BOOLEAN,
+VIS_LIT_PERF_ARTS	BOOLEAN,	
+INDIV_SOCIETY	BOOLEAN,
+NATURAL_WORLD	BOOLEAN,
+DIVERSITY_CRS	BOOLEAN,
+HYPHEN_TYPE	INT,
+PRIOR_DEPT_ABBR	CHAR,
+PRIOR_COURSE_NUM	INT
+RESP_CURRIC_ABBR[*]	CHAR,
+RESP_COURSE_NO	INT
+
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch int,
+lastATP	int,
+firstATP	int,
+grading_system	int,	
+credit_control	int,	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal,
+approved_dt	datetime,	
+changed_dt	datetime,	
+dropped_dt	datetime,	
+last_update_dt	datetime,	
+sr_crs_dl_appr_dt	datetime,
+deductible	boolean,
+honors	boolean,
+dup_enroll	boolean,
+course_ts_omit	boolean,
+course_cat_omit	boolean,
+writing_crs	boolean,
+english_comp	boolean,
+qsr	boolean,
+vis_lit_perf_arts	boolean,	
+indiv_society	boolean,
+natural_world	boolean,
+diversity_crs	boolean,
+hyphen_type	int,
+prior_dept_abbr	char,
+prior_course_num	int
+resp_curric_abbr	char,
+resp_course_no	int
+
+) [42001-163]
+12-02 19:17:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE COURSE
+(
+ID INT PRIMARY KEY, 
+DEPARTMENT_ABBREV	CHAR,	
+COURSE_NUMBER	INT,
+LONG_COURSE_TITLE	CHAR,	
+COURSE_TITLE	CHAR,	
+COURSE_COLLEGE	CHAR,	
+COURSE_BRANCH INT,
+LASTATP	INT,
+FIRSTATP	INT,
+GRADING_SYSTEM	INT,	
+CREDIT_CONTROL	INT,	
+MIN_QTR_CREDITS	DECIMAL,
+MAX_QTR_CREDITS	DECIMAL,
+MAX_CREDITS	DECIMAL,
+APPROVED_DT	DATETIME,	
+CHANGED_DT	DATETIME,	
+DROPPED_DT	DATETIME,	
+LAST_UPDATE_DT	DATETIME,	
+SR_CRS_DL_APPR_DT	DATETIME,
+
+HYPHEN_TYPE	INT,
+PRIOR_DEPT_ABBR	CHAR,
+PRIOR_COURSE_NUM	INT
+RESP_CURRIC_ABBR[*]	CHAR,
+RESP_COURSE_NO	INT
+
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Course
+(
+ID INT PRIMARY KEY, 
+department_abbrev	char,	
+course_number	int,
+long_course_title	char,	
+course_title	char,	
+course_college	char,	
+course_branch int,
+lastATP	int,
+firstATP	int,
+grading_system	int,	
+credit_control	int,	
+min_qtr_credits	decimal,
+max_qtr_credits	decimal,
+max_credits	decimal,
+approved_dt	datetime,	
+changed_dt	datetime,	
+dropped_dt	datetime,	
+last_update_dt	datetime,	
+sr_crs_dl_appr_dt	datetime,
+
+hyphen_type	int,
+prior_dept_abbr	char,
+prior_course_num	int
+resp_curric_abbr	char,
+resp_course_no	int
+
+) [42001-163]
+12-02 19:37:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "INSERT INTO COURSE ( APPROVED_DT ) VALUES ( 2013-12-02 00[*]:00:00.0 ) "; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+insert into Course ( approved_dt ) values ( 2013-12-02 00:00:00.0 ) [42001-163]
+12-02 19:39:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "TABLE_NAME" not found; SQL statement:
+INSERT INTO table_name 
+(
+department_abbrev,
+course_number,
+long_course_title,
+course_title,
+course_college,
+course_branch,
+lastATP,
+firstATP,
+grading_system,
+credit_control,
+min_qtr_credits,
+max_qtr_credits,
+max_credits,
+approved_dt,
+changed_dt,
+dropped_dt,
+last_update_dt,
+sr_crs_dl_appr_dt,
+deductible,
+honors,
+dup_enroll,
+course_ts_omit,
+course_cat_omit,
+writing_crs,
+english_comp,
+qsr,
+vis_lit_perf_arts,
+indiv_society,
+natural_world,
+diversity_crs,
+hyphen_type,
+prior_dept_abbr,
+prior_course_num,
+resp_curric_abbr,
+resp_course_no
+)
+VALUES 
+(
+'TOP',
+200,
+'Course catalog title goes here',
+'Transcript title goes here',
+J,
+0,
+99994,
+19701,
+0,
+0,
+1,
+10,
+10,
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+0,
+'ABC',
+'123',
+'ABC',
+'123'
+) [42102-163]
+12-02 19:39:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "J" not found; SQL statement:
+INSERT INTO Course 
+(
+department_abbrev,
+course_number,
+long_course_title,
+course_title,
+course_college,
+course_branch,
+lastATP,
+firstATP,
+grading_system,
+credit_control,
+min_qtr_credits,
+max_qtr_credits,
+max_credits,
+approved_dt,
+changed_dt,
+dropped_dt,
+last_update_dt,
+sr_crs_dl_appr_dt,
+deductible,
+honors,
+dup_enroll,
+course_ts_omit,
+course_cat_omit,
+writing_crs,
+english_comp,
+qsr,
+vis_lit_perf_arts,
+indiv_society,
+natural_world,
+diversity_crs,
+hyphen_type,
+prior_dept_abbr,
+prior_course_num,
+resp_curric_abbr,
+resp_course_no
+)
+VALUES 
+(
+'TOP',
+200,
+'Course catalog title goes here',
+'Transcript title goes here',
+J,
+0,
+99994,
+19701,
+0,
+0,
+1,
+10,
+10,
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+0,
+'ABC',
+'123',
+'ABC',
+'123'
+) [42122-163]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:138)
+	at org.h2.command.dml.Insert.prepare(Insert.java:231)
+	at org.h2.command.Parser.prepareCommand(Parser.java:218)
+	at org.h2.engine.Session.prepareLocal(Session.java:415)
+	at org.h2.engine.Session.prepareCommand(Session.java:364)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1121)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:164)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:152)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1311)
+	at org.h2.server.web.WebApp.query(WebApp.java:1001)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:964)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:967)
+	at org.h2.server.web.WebThread.process(WebThread.java:166)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:744)
+12-03 16:37:16 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM ( [[*]B@435792A0 ) UGH WHERE 1 = 0 "; expected "identifier"; SQL statement:
+select * from ( [B@435792a0 ) ugh where 1 = 0 [42001-163]
+12-03 16:38:07 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "INSERT" not found; SQL statement:
+select * from ( INSERT INTO Course 
+(
+department_abbrev,
+course_number,
+long_course_title,
+course_title,
+course_college,
+course_branch,
+lastATP,
+firstATP,
+grading_system,
+credit_control,
+min_qtr_credits,
+max_qtr_credits,
+max_credits,
+approved_dt,
+changed_dt,
+dropped_dt,
+last_update_dt,
+sr_crs_dl_appr_dt,
+deductible,
+honors,
+dup_enroll,
+course_ts_omit,
+course_cat_omit,
+writing_crs,
+english_comp,
+qsr,
+vis_lit_perf_arts,
+indiv_society,
+natural_world,
+diversity_crs,
+hyphen_type,
+prior_dept_abbr,
+prior_course_num,
+resp_curric_abbr,
+resp_course_no
+)
+VALUES 
+(
+'TOP',
+200,
+'Course catalog title goes here',
+'Transcript title goes here',
+'J',
+0,
+99994,
+19701,
+0,
+0,
+1,
+10,
+10,
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+'2013-12-02 00:00:00.0',
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+false,
+0,
+'ABC',
+'123',
+'ABC',
+'123'
+); ) ugh where 1 = 0 [42102-163]
+12-03 16:43:05 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM ( SELECT
+	DEPARTMENT_ABBREV,
+	COURSE_NUMBER,
+	LONG_COURSE_TITLE,
+	COURSE_TITLE,
+	COURSE_COLLEGE,
+	COURSE_BRANCH,
+	LASTATP,
+	FIRSTATP,
+	
+	GRADING_SYSTEM,
+	CREDIT_CONTROL,
+	MIN_QTR_CREDITS,
+	MAX_QTR_CREDITS,
+	MAX_CREDITS,
+	
+	
+	APPROVED_DT,
+	CHANGED_DT,
+	DROPPED_DT,
+	LAST_UPDATE_DT,
+	SR_CRS_DL_APPR_DT,
+	DEDUCTIBLE,
+	HONORS,
+	DUP_ENROLL,
+	COURSE_TS_OMIT,
+	COURSE_CAT_OMIT,
+	
+	             
+	WRITING_CRS,
+	ENGLISH_COMP,
+	QSR,
+	VIS_LIT_PERF_ARTS,
+	INDIV_SOCIETY,
+	NATURAL_WORLD,
+	DIVERSITY_CRS,
+FROM  COURSE
+WHERE[*] LASTATP = 9994
+AND   DEPARTMENT_ABBREV = 'ENGL' 
+AND   COURSE_NUMBER = '100'
+ ) UGH WHERE 1 = 0 "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select * from ( SELECT
+	department_abbrev,
+	course_number,
+	long_course_title,
+	course_title,
+	course_college,
+	course_branch,
+	lastATP,
+	firstATP,
+	
+	grading_system,
+	credit_control,
+	min_qtr_credits,
+	max_qtr_credits,
+	max_credits,
+	
+	
+	approved_dt,
+	changed_dt,
+	dropped_dt,
+	last_update_dt,
+	sr_crs_dl_appr_dt,
+	deductible,
+	honors,
+	dup_enroll,
+	course_ts_omit,
+	course_cat_omit,
+	
+	-- gened reqs
+	writing_crs,
+	english_comp,
+	qsr,
+	vis_lit_perf_arts,
+	indiv_society,
+	natural_world,
+	diversity_crs,
+FROM  Course
+WHERE lastATP = 9994
+AND   department_abbrev = 'ENGL' 
+AND   course_number = '100'
+ ) ugh where 1 = 0 [42001-163]
+12-03 16:43:49 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM ( SELECT
+	DEPARTMENT_ABBREV,
+	COURSE_NUMBER,
+	LONG_COURSE_TITLE,
+	COURSE_TITLE,
+	COURSE_COLLEGE,
+	COURSE_BRANCH,
+	LASTATP,
+	FIRSTATP,
+	
+	GRADING_SYSTEM,
+	CREDIT_CONTROL,
+	MIN_QTR_CREDITS,
+	MAX_QTR_CREDITS,
+	MAX_CREDITS,
+	
+	
+	APPROVED_DT,
+	CHANGED_DT,
+	DROPPED_DT,
+	LAST_UPDATE_DT,
+	SR_CRS_DL_APPR_DT,
+	DEDUCTIBLE,
+	HONORS,
+	DUP_ENROLL,
+	COURSE_TS_OMIT,
+	COURSE_CAT_OMIT,
+	
+	             
+	WRITING_CRS,
+	ENGLISH_COMP,
+	QSR,
+	VIS_LIT_PERF_ARTS,
+	INDIV_SOCIETY,
+	NATURAL_WORLD,
+	DIVERSITY_CRS,
+FROM  COURSE
+WHERE[*] LASTATP = 9994
+AND   DEPARTMENT_ABBREV = 'ENGL' 
+AND   COURSE_NUMBER = '100'
+ ) UGH WHERE 1 = 0 "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select * from ( SELECT
+	department_abbrev,
+	course_number,
+	long_course_title,
+	course_title,
+	course_college,
+	course_branch,
+	lastATP,
+	firstATP,
+	
+	grading_system,
+	credit_control,
+	min_qtr_credits,
+	max_qtr_credits,
+	max_credits,
+	
+	
+	approved_dt,
+	changed_dt,
+	dropped_dt,
+	last_update_dt,
+	sr_crs_dl_appr_dt,
+	deductible,
+	honors,
+	dup_enroll,
+	course_ts_omit,
+	course_cat_omit,
+	
+	-- gened reqs
+	writing_crs,
+	english_comp,
+	qsr,
+	vis_lit_perf_arts,
+	indiv_society,
+	natural_world,
+	diversity_crs,
+FROM  Course
+WHERE lastATP = 9994
+AND   department_abbrev = 'ENGL' 
+AND   course_number = '100'
+ ) ugh where 1 = 0 [42001-163]
+12-03 16:45:33 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM ( SELECT
+	DEPARTMENT_ABBREV,
+	COURSE_NUMBER,
+	LONG_COURSE_TITLE,
+	COURSE_TITLE,
+	COURSE_COLLEGE,
+	COURSE_BRANCH,
+	LASTATP,
+	FIRSTATP,
+	
+	GRADING_SYSTEM,
+	CREDIT_CONTROL,
+	MIN_QTR_CREDITS,
+	MAX_QTR_CREDITS,
+	MAX_CREDITS,
+	
+	
+	APPROVED_DT,
+	CHANGED_DT,
+	DROPPED_DT,
+	LAST_UPDATE_DT,
+	SR_CRS_DL_APPR_DT,
+	DEDUCTIBLE,
+	HONORS,
+	DUP_ENROLL,
+	COURSE_TS_OMIT,
+	COURSE_CAT_OMIT,
+	
+	             
+	WRITING_CRS,
+	ENGLISH_COMP,
+	QSR,
+	VIS_LIT_PERF_ARTS,
+	INDIV_SOCIETY,
+	NATURAL_WORLD,
+	DIVERSITY_CRS,
+FROM  COURSE
+WHERE[*] LASTATP = 9994
+AND   DEPARTMENT_ABBREV = 'ENGL' 
+AND   COURSE_NUMBER = '100'
+ ) UGH WHERE 1 = 0 "; expected "., (, AS, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+select * from ( SELECT
+	department_abbrev,
+	course_number,
+	long_course_title,
+	course_title,
+	course_college,
+	course_branch,
+	lastATP,
+	firstATP,
+	
+	grading_system,
+	credit_control,
+	min_qtr_credits,
+	max_qtr_credits,
+	max_credits,
+	
+	
+	approved_dt,
+	changed_dt,
+	dropped_dt,
+	last_update_dt,
+	sr_crs_dl_appr_dt,
+	deductible,
+	honors,
+	dup_enroll,
+	course_ts_omit,
+	course_cat_omit,
+	
+	-- gened reqs
+	writing_crs,
+	english_comp,
+	qsr,
+	vis_lit_perf_arts,
+	indiv_society,
+	natural_world,
+	diversity_crs,
+FROM  Course
+WHERE lastATP = 9994
+AND   department_abbrev = 'ENGL' 
+AND   course_number = '100'
+ ) ugh where 1 = 0 [42001-163]

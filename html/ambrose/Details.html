@@ -4,7 +4,17 @@
 	<meta charset="utf-8">
 	<title>Course</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<style>
+.unreadable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;   
+    border-color: transparent;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -14,7 +24,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Campus</label>
 			    <div class="col-xs-3">
-					<select name="campus" class="form-control">
+					<select name="campus" class="form-control unreadable">
 						<option value="0" selected="selected">Seattle</option>
 						<option value="1">Tacoma</option>
 						<option value="2">Bothell</option>
@@ -65,7 +75,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Code</label>
 			    <div class="col-xs-4">
-					<input type="text" style="display: inline; width: 40%;" class="form-control" name="abbrev" placeholder="ENGL" value="" />
+					<input type="text" style="display: inline; width: 40%;" class="form-control unreadable" name="abbrev" placeholder="ENGL" value="" />
 					<input type="text" style="display: inline; width: 40%;" class="form-control" name="number" placeholder="000" value="" />
 				</div>
 			</div>
