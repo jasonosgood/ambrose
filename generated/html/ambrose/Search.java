@@ -2,6 +2,7 @@ package ambrose;
 // Generated from null -- DO NOT MODIFY
 
 import martini.model.Page;
+import martini.HTMLBuilder;
 import martini.model.*;
 import static martini.util.Util.hasText;
 import java.util.List;
@@ -33,13 +34,13 @@ public class Search extends Page
 		_searchForm = searchForm;
 	}
 
-		private List<SearchResultsItem> _results = new ArrayList<SearchResultsItem>();
-		public List<SearchResultsItem> getResults() { return _results; }
-		public void setResults( List<SearchResultsItem> results ) { _results = results; }
+	private List<SearchResultsItem> _results = new ArrayList<SearchResultsItem>();
+	public List<SearchResultsItem> getResults() { return _results; }
+	public void setResults( List<SearchResultsItem> results ) { _results = results; }
 
-		private List<SearchPagesItem> _pages = new ArrayList<SearchPagesItem>();
-		public List<SearchPagesItem> getPages() { return _pages; }
-		public void setPages( List<SearchPagesItem> pages ) { _pages = pages; }
+	private List<SearchPagesItem> _pages = new ArrayList<SearchPagesItem>();
+	public List<SearchPagesItem> getPages() { return _pages; }
+	public void setPages( List<SearchPagesItem> pages ) { _pages = pages; }
 
 	public void render( HttpServletResponse response )
 		throws ServletException, IOException 
@@ -121,7 +122,7 @@ public class Search extends Page
 		element( "ul" );
 		attribute( "class", "list-unstyled" );
 		attribute( "martini", "results" );
-		for( SearchResultsItem item : getResults() )
+		for( SearchResultsItem item0 : getResults()  )
 		{
 			element( "li" );
 			text( "\n\t\t\t\t" );
@@ -132,23 +133,23 @@ public class Search extends Page
 			element( "a" );
 			attribute( "shape", "rect" );
 			attribute( "martini", "link" );
-			attribute( "href", item.getLinkHref() );
+			attribute( "href", item0.getLinkHref() );
 			text( "\n\t\t\t\t\t" );
 			element( "span" );
 			attribute( "martini", "course" );
-			text( item.getCourse() );
+			text( item0.getCourse() );
 			pop();
 			text( "\n\t\t\t\t\t" );
 			element( "span" );
 			attribute( "martini", "catalog" );
-			text( item.getCatalog() );
+			text( item0.getCatalog() );
 			pop();
 			text( "\n\t\t\t\t" );
 			pop();
 			text( "\n\t\t\t\t" );
 			element( "div" );
 			attribute( "martini", "description" );
-			text( item.getDescription() );
+			text( item0.getDescription() );
 			pop();
 			text( "\n\t\t\t\t" );
 			text( "\n\t\t\t" );
@@ -163,15 +164,15 @@ public class Search extends Page
 		element( "ul" );
 		attribute( "class", "pagination" );
 		attribute( "martini", "pages" );
-		for( SearchPagesItem item : getPages() )
+		for( SearchPagesItem item0 : getPages()  )
 		{
 			element( "li" );
 			attribute( "class", "disabled" );
 			element( "a" );
 			attribute( "shape", "rect" );
 			attribute( "martini", "nth" );
-			attribute( "href", item.getNthHref() );
-			text( item.getNth() );
+			attribute( "href", item0.getNthHref() );
+			text( item0.getNth() );
 			pop();
 			pop();
 		}

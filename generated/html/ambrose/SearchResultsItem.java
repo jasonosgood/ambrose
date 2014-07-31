@@ -1,15 +1,21 @@
 package ambrose;
 
 import martini.model.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class 
 	SearchResultsItem
 extends 
 	ListItem
 {
-	private Object _description = null;
-	public Object getDescription() { return _description; }
-	public void setDescription( Object description ) { _description = description; }
+	private Object _link = null;
+	public Object getLink() { return _link; }
+	public void setLink( Object link ) { _link = link; }
+
+	private Object _linkHref = null;
+	public Object getLinkHref() { return _linkHref; }
+	public void setLinkHref( Object linkHref ) { _linkHref = linkHref; }
 
 	private Object _course = null;
 	public Object getCourse() { return _course; }
@@ -19,12 +25,8 @@ extends
 	public Object getCatalog() { return _catalog; }
 	public void setCatalog( Object catalog ) { _catalog = catalog; }
 
-	private Object _link = null;
-	public Object getLink() { return _link; }
-	public void setLink( Object link ) { _link = link; }
-
-	private Object _linkHref = null;
-	public Object getLinkHref() { return _linkHref; }
-	public void setLinkHref( Object linkHref ) { _linkHref = linkHref; }
+	private Object _description = null;
+	public Object getDescription() { return _description; }
+	public void setDescription( Object description ) { _description = description; }
 
 }

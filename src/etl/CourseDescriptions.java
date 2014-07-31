@@ -25,7 +25,7 @@ public class
 		cm.setUsername( "sa" );
 		Connection cmConnection = cm.getConnection();
 
-		SelectCourseDescr select = new SelectCourseDescr();
+		SelectCourseDescr select = new SelectCourseDescr(cmConnection);
 		UpdateCourseDescr update = new UpdateCourseDescr();
 		
 		Csv haha = Csv.getInstance();
@@ -48,7 +48,7 @@ public class
 			
 			select.setDepartment_abbrev( abbrev );
 			select.setCourse_number( num );
-			SelectCourseDescrResultSet courseRS = select.execute( cmConnection );
+			SelectCourseDescrResultSet courseRS = select.execute();
 			if( courseRS.hasNext() )
 			{
 				String old = courseRS.getDescription();

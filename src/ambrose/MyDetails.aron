@@ -10,7 +10,7 @@ handler:DetailsHandler
 	db DB 
 	(
 		driver "org.h2.Driver"
-		url "jdbc:h2:tcp://localhost:9092/~/Projects/ambrose/db/cm"
+		url "jdbc:h2:tcp://localhost:9092/~/Projects/ambrose/db/cm;MODE=MSSQLServer"
 		username "sa"
 		password ""
 	)

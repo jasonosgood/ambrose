@@ -109,8 +109,8 @@ public class IndexCourses {
 		Connection connection = cm.getConnection();
 		
 		int count = 0;
-		SelectCourseForIndexing select = new SelectCourseForIndexing();
-		SelectCourseForIndexingResultSet rs = select.execute( connection );
+		SelectCourseForIndexing select = new SelectCourseForIndexing( connection );
+		SelectCourseForIndexingResultSet rs = select.execute();
 		while( rs.hasNext() )
 		{
 			Document doc = new Document();

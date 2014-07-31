@@ -1,6 +1,6 @@
 /**
 
-SelectCourseDetails.java   Tue Dec 10 10:42:52 PST 2013
+SelectCourseDetails.java   Wed Jul 30 06:47:32 PDT 2014
   
 Generated using Fado's Select.vm template. Original SQL:
     
@@ -61,68 +61,56 @@ import java.math.BigDecimal;
 public class 
 	SelectCourseDetails
 {
-	private int __resultSetType = ResultSet.TYPE_SCROLL_INSENSITIVE;
-	
-	public void setResultSetType( int resultSetType )
-	{
-		__resultSetType = resultSetType;
-	}
-	
-	public int getResultSetType()
-	{
-		return __resultSetType;
-	}
-	
-	private int __resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
-
-	public void setResultSetConcurrency( int resultSetConcurrency )
-	{
-		__resultSetConcurrency = resultSetConcurrency;
-	}
-	
-	public int getResultSetConcurrency()
-	{
-		return __resultSetConcurrency;
-	}
-	
+	PreparedStatement __ps = null;
 
 	/**
-		Pass a Connection instance, you are responsible for closing it, method SelectCourseDetailsResultSet.close()
-		WILL NOT call that instance's Connection.close() method. 
-		 
+		Pass a Connection. You are responsible for closing that Connection. 
+		SelectCourseDetails is a wrapper for a PreparedStatement, not a Connection.
 	**/
-	public final SelectCourseDetailsResultSet execute( Connection connection )
+	public SelectCourseDetails( Connection connection, int resultSetType, int resultSetConcurrency )
 		throws SQLException
 	{
 		String sql = getSQL();
-		PreparedStatement ps = connection.prepareStatement( sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
-			
-		ps.setInt( 1, getLastATP() );
-		ps.setString( 2, getDepartment_abbrev() );
-		ps.setInt( 3, getCourse_number() );
+		__ps = connection.prepareStatement( sql, resultSetType, resultSetConcurrency );
+	}
+
+	public SelectCourseDetails( Connection connection )
+		throws SQLException
+	{
+		this( connection, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
+	}
+	
+	/**
+		Pass a DataSource. You are responsible for closing that DataSource. 
+		SelectCourseDetails is a wrapper for a PreparedStatement, not a Connection.
+	**/
+	public SelectCourseDetails( DataSource dataSource, int resultSetType, int resultSetConcurrency )
+		throws SQLException
+	{
+		this( dataSource.getConnection(), resultSetType, resultSetConcurrency );
+	}
+
+	public SelectCourseDetails( DataSource dataSource )
+		throws SQLException
+	{
+		this( dataSource, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
+	}
+		
+	public final SelectCourseDetailsResultSet execute()
+		throws SQLException
+	{
+		__ps.setInt( 1, getLastATP() );
+		__ps.setString( 2, getDepartment_abbrev() );
+		__ps.setInt( 3, getCourse_number() );
 			
 		ResultSet rs = null;
-		if( ps.execute() )
+		if( __ps.execute() )
 		{
-			rs = ps.getResultSet();
+			rs = __ps.getResultSet();
 		}
 		SelectCourseDetailsResultSet result = new SelectCourseDetailsResultSet( rs );
 		return result;
 	}
-
-	/**
-		Pass a DataSource, a Connection instance is created, method SelectCourseDetailsResultSet.close() WILL 
-		also call that instance's Connection.close() method. 
-	**/
-	public final SelectCourseDetailsResultSet execute( DataSource dataSource )
-		throws SQLException
-	{
-		Connection connection = dataSource.getConnection();
-		SelectCourseDetailsResultSet result = execute( connection );
-		result.setConnection( connection );
-		return result;
-	}
-
 
 
 	public int _lastATP = 99994;

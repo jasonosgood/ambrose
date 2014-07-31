@@ -1,2 +1,20 @@
 CREATE TABLE Course AS
-SELECT * FROM CSVREAD('/Users/jasonosgood/Downloads/all_cm20etl_20131129_uwsdb.csv', null, 'fieldSeparator=' || CHAR(9));
+SELECT * FROM CSVREAD('/Users/jasonosgood/Desktop/UWSDB/sr_course_titles.csv', null, 'fieldSeparator=' || CHAR(9));
+
+ALTER TABLE Course
+ADD id bigint auto_increment primary key
+
+CREATE TABLE Campus AS
+SELECT * FROM CSVREAD('/Users/jasonosgood/Desktop/UWSDB/sys_tbl_25_campus.csv', null, 'fieldSeparator=' || CHAR(9));
+
+
+CREATE TABLE College AS
+SELECT * FROM CSVREAD('/Users/jasonosgood/Desktop/UWSDB/sr_coll_code.csv', null, 'fieldSeparator=' || CHAR(9));
+
+CREATE TABLE Dept AS
+SELECT * FROM CSVREAD('/Users/jasonosgood/Desktop/UWSDB/kscm_org_dept.csv', null, 'fieldSeparator=' || CHAR(9));
+
+CREATE TABLE Curric AS
+SELECT * FROM CSVREAD('/Users/jasonosgood/Desktop/UWSDB/kscm_org_curric.csv', null, 'fieldSeparator=' || CHAR(9));
+
+

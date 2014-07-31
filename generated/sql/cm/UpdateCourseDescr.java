@@ -1,7 +1,7 @@
 
 /**
 
-UpdateCourseDescr.java   Tue Dec 10 10:42:52 PST 2013
+UpdateCourseDescr.java   Wed Jul 30 06:47:32 PDT 2014
   
 Generated using Fado's Update.vm template. Original SQL:
     

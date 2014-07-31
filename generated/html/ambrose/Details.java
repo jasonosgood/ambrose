@@ -2,6 +2,7 @@ package ambrose;
 // Generated from null -- DO NOT MODIFY
 
 import martini.model.Page;
+import martini.HTMLBuilder;
 import martini.model.*;
 import static martini.util.Util.hasText;
 import java.util.List;
@@ -66,13 +67,34 @@ public class Details extends Page
 		attribute( "name", "viewport" );
 		attribute( "content", "width=device-width, initial-scale=1.0" );
 		pop();
+		element( "script" );
+		attribute( "type", "text/javascript" );
+		attribute( "src", "http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" );
+		pop();
+		element( "script" );
+		attribute( "type", "text/javascript" );
+		attribute( "src", "/bootstrap-select/bootstrap-select.js" );
+		pop();
+		element( "script" );
+		attribute( "src", "/assets/js/bootstrap.min.js" );
+		pop();
 		element( "link" );
 		attribute( "href", "/assets/css/bootstrap.css" );
 		attribute( "rel", "stylesheet" );
 		pop();
+		element( "link" );
+		attribute( "rel", "stylesheet" );
+		attribute( "type", "text/css" );
+		attribute( "href", "/bootstrap-select/bootstrap-select.css" );
+		pop();
+		element( "style" );
+		text( "\n        " );
+		text( ".inlined {\n            display:inline;\n        }\n        .gap {\n            margin-left:4px;\n        }" );
+		text( "\n    " );
+		pop();
 		pop();
 		element( "body" );
-		text( "\n\t" );
+		text( "\n\n\n\t" );
 		element( "div" );
 		attribute( "class", "container" );
 		text( "\n\t\t" );
@@ -87,7 +109,7 @@ public class Details extends Page
 		attribute( "class", "form-horizontal" );
 		attribute( "martini", "Details" );
 		attribute( "role", "form" );
-		text( "\n\n\t\t\t" );
+		text( "\n\t\t\t" );
 		element( "div" );
 		attribute( "class", "form-group" );
 		text( "\n\t\t\t\t" );
@@ -97,26 +119,12 @@ public class Details extends Page
 		pop();
 		text( "\n\t\t\t    " );
 		element( "div" );
-		attribute( "class", "col-xs-3" );
+		attribute( "class", "col-sm-3" );
 		text( "\n\t\t\t\t\t" );
 		element( "select" );
-		attribute( "class", "form-control" );
+		attribute( "class", "form-control selectpicker" );
 		attribute( "name", "campus" );
-		for( Option option : getDetailsForm().getCampus() )
-		{
-			element( "option" );
-			String value = option.getValue();
-			if( hasText( value ))
-			{
-				attribute( "value", value );
-			}
-			if( option.getSelected() )
-			{
-				attribute( "selected", "selected" );
-			}
-			text( option.getText() );
-			pop();
-		}
+		render( getDetailsForm().getCampus() );
 		pop();
 		text( "\n\t\t\t\t" );
 		pop();
@@ -132,26 +140,12 @@ public class Details extends Page
 		pop();
 		text( "\n\t\t\t    " );
 		element( "div" );
-		attribute( "class", "col-xs-3" );
+		attribute( "class", "col-sm-3" );
 		text( "\n\t\t\t\t\t" );
 		element( "select" );
-		attribute( "class", "form-control" );
+		attribute( "class", "form-control selectpicker" );
 		attribute( "name", "college" );
-		for( Option option : getDetailsForm().getCollege() )
-		{
-			element( "option" );
-			String value = option.getValue();
-			if( hasText( value ))
-			{
-				attribute( "value", value );
-			}
-			if( option.getSelected() )
-			{
-				attribute( "selected", "selected" );
-			}
-			text( option.getText() );
-			pop();
-		}
+		render( getDetailsForm().getCollege() );
 		pop();
 		text( "\n\t\t\t\t" );
 		pop();
@@ -167,71 +161,55 @@ public class Details extends Page
 		pop();
 		text( "\n\t\t\t    " );
 		element( "div" );
-		attribute( "class", "col-xs-3" );
+		attribute( "class", "col-sm-3" );
 		text( "\n\t\t\t\t\t" );
 		element( "select" );
-		attribute( "class", "form-control" );
+		attribute( "class", "form-control selectpicker" );
 		attribute( "name", "dept" );
-		for( Option option : getDetailsForm().getDept() )
-		{
-			element( "option" );
-			String value = option.getValue();
-			if( hasText( value ))
-			{
-				attribute( "value", value );
-			}
-			if( option.getSelected() )
-			{
-				attribute( "selected", "selected" );
-			}
-			text( option.getText() );
-			pop();
-		}
+		render( getDetailsForm().getDept() );
 		pop();
 		text( "\n\t\t\t\t" );
 		pop();
 		text( "\n\t\t\t" );
 		pop();
-		text( "\n\t\t\t\n\t\t\t" );
+		text( "\n\n            " );
 		element( "div" );
 		attribute( "class", "form-group" );
-		text( "\n\t\t\t\t" );
+		text( "\n                " );
 		element( "label" );
 		attribute( "class", "col-sm-2 control-label" );
-		text( "Code" );
+		text( "Course" );
 		pop();
-		text( "\n\t\t\t    " );
+		text( "\n                " );
 		element( "div" );
-		attribute( "class", "col-xs-4" );
-		text( "\n\t\t\t\t\t" );
-		element( "input" );
-		attribute( "type", "text" );
-		attribute( "class", "form-control" );
-		attribute( "style", "display: inline; width: 40%;" );
-		attribute( "name", "abbrev" );
-		attribute( "placeholder", "ENGL" );
-		attribute( "value", getDetailsForm().getAbbrev() );
+		attribute( "class", "col-sm-6" );
+		text( "\n                    " );
+		element( "select" );
+		attribute( "class", "form-control selectpicker" );
+		attribute( "name", "curric" );
+		attribute( "data-width", "45%" );
+		render( getDetailsForm().getCurric() );
 		pop();
-		text( "\n\t\t\t\t\t" );
+		text( "\n                    " );
 		element( "input" );
 		attribute( "type", "text" );
-		attribute( "class", "form-control" );
-		attribute( "style", "display: inline; width: 40%;" );
+		attribute( "class", "form-control inlined gap" );
+		attribute( "style", "width:45%;" );
 		attribute( "name", "number" );
 		attribute( "placeholder", "000" );
 		attribute( "value", getDetailsForm().getNumber() );
 		pop();
-		text( "\n\t\t\t\t" );
+		text( "\n                " );
 		pop();
-		text( "\n\t\t\t" );
+		text( "\n            " );
 		pop();
-		text( "\n\t\t\t\n\t\t\t" );
+		text( "\n\n            " );
 		element( "div" );
 		attribute( "class", "form-group" );
 		text( "\n\t\t\t\t" );
 		element( "label" );
 		attribute( "class", "col-sm-2 control-label" );
-		text( "Catalog" );
+		text( "Titles" );
 		pop();
 		text( "\n\t\t\t\t" );
 		element( "div" );
@@ -241,7 +219,7 @@ public class Details extends Page
 		attribute( "type", "text" );
 		attribute( "class", "form-control" );
 		attribute( "name", "catalog" );
-		attribute( "placeholder", "Catalog title" );
+		attribute( "placeholder", "Used for online course catalog" );
 		attribute( "value", getDetailsForm().getCatalog() );
 		pop();
 		text( "\n\t\t\t\t" );
@@ -254,7 +232,7 @@ public class Details extends Page
 		text( "\n\t\t\t\t" );
 		element( "label" );
 		attribute( "class", "col-sm-2 control-label" );
-		text( "Transcript" );
+		text( " " );
 		pop();
 		text( "\n\t\t\t\t" );
 		element( "div" );
@@ -264,7 +242,7 @@ public class Details extends Page
 		attribute( "type", "text" );
 		attribute( "class", "form-control" );
 		attribute( "name", "transcript" );
-		attribute( "placeholder", "Transcript title, max 40 chars" );
+		attribute( "placeholder", "Used for transcript, max 40 chars" );
 		attribute( "value", getDetailsForm().getTranscript() );
 		pop();
 		text( "\n\t\t\t\t" );
@@ -304,47 +282,43 @@ public class Details extends Page
 		pop();
 		text( "\n\t\t\t    " );
 		element( "div" );
-		attribute( "class", "col-xs-9" );
-		text( "\n\t\t\t\t\t" );
+		attribute( "class", "col-sm-6" );
+		text( "\n                    " );
 		element( "select" );
-		attribute( "class", "form-control" );
-		attribute( "style", "display: inline; width: auto;" );
+		attribute( "class", "form-control selectpicker" );
 		attribute( "name", "credits" );
-		for( Option option : getDetailsForm().getCredits() )
-		{
-			element( "option" );
-			String value = option.getValue();
-			if( hasText( value ))
-			{
-				attribute( "value", value );
-			}
-			if( option.getSelected() )
-			{
-				attribute( "selected", "selected" );
-			}
-			text( option.getText() );
-			pop();
-		}
+		attribute( "data-width", "45%" );
+		render( getDetailsForm().getCredits() );
 		pop();
-		text( "\n\t\t\t\t\t" );
+		text( "\n                    " );
 		element( "input" );
 		attribute( "type", "text" );
-		attribute( "class", "form-control" );
-		attribute( "style", "display: inline; width: 10%;" );
+		attribute( "class", "form-control inlined gap" );
+		attribute( "style", "width:10%;" );
 		attribute( "name", "creditsMin" );
 		attribute( "placeholder", "1" );
 		attribute( "size", "2" );
 		attribute( "value", getDetailsForm().getCreditsMin() );
 		pop();
-		text( "\n\t\t\t\t\t" );
+		text( "\n                    " );
 		element( "input" );
 		attribute( "type", "text" );
-		attribute( "class", "form-control" );
-		attribute( "style", "display: inline; width: 10%;" );
+		attribute( "class", "form-control inlined" );
+		attribute( "style", "width:10%;" );
 		attribute( "name", "creditsMax" );
 		attribute( "placeholder", "1" );
 		attribute( "size", "2" );
 		attribute( "value", getDetailsForm().getCreditsMax() );
+		pop();
+		text( "\n                    " );
+		element( "input" );
+		attribute( "type", "text" );
+		attribute( "class", "form-control inlined" );
+		attribute( "style", "width:10%;" );
+		attribute( "name", "creditsRepeatable" );
+		attribute( "placeholder", "1" );
+		attribute( "size", "2" );
+		attribute( "value", getDetailsForm().getCreditsRepeatable() );
 		pop();
 		text( "\n\t\t\t\t" );
 		pop();
@@ -360,125 +334,109 @@ public class Details extends Page
 		pop();
 		text( "\n\t\t\t    " );
 		element( "div" );
-		attribute( "class", "col-xs-3" );
+		attribute( "class", "col-sm-3" );
 		text( "\n\t\t\t\t\t" );
 		element( "select" );
-		attribute( "class", "form-control" );
+		attribute( "class", "form-control selectpicker" );
 		attribute( "name", "grading" );
-		attribute( "style", "width: auto;" );
-		for( Option option : getDetailsForm().getGrading() )
-		{
-			element( "option" );
-			String value = option.getValue();
-			if( hasText( value ))
-			{
-				attribute( "value", value );
-			}
-			if( option.getSelected() )
-			{
-				attribute( "selected", "selected" );
-			}
-			text( option.getText() );
-			pop();
-		}
+		render( getDetailsForm().getGrading() );
 		pop();
 		text( "\n\t\t\t\t" );
 		pop();
 		text( "\n\t\t\t" );
 		pop();
-		text( "\n\n\t\t\t" );
+		text( "\n\n            " );
 		element( "div" );
 		attribute( "class", "form-group" );
-		text( "\n\t\t\t\t" );
+		text( "\n                " );
 		element( "label" );
 		attribute( "class", "col-sm-2 control-label" );
-		text( "Start Term" );
+		text( "First" );
 		pop();
-		text( "\n\t\t\t    " );
+		text( "\n                " );
 		element( "div" );
-		attribute( "class", "col-sm-8" );
-		text( "\n\t\t\t\t\t" );
+		attribute( "class", "col-sm-3" );
+		text( "\n                    " );
 		element( "input" );
 		attribute( "type", "text" );
 		attribute( "class", "form-control" );
-		attribute( "style", "display: inline; width: auto;" );
 		attribute( "name", "startYear" );
-		attribute( "size", "4" );
 		attribute( "placeholder", "2013" );
+		attribute( "size", "4" );
 		attribute( "value", getDetailsForm().getStartYear() );
 		pop();
-		text( "\n\t\t\t\t\t" );
-		element( "select" );
-		attribute( "class", "form-control" );
-		attribute( "name", "startTerm " );
-		attribute( "style", "display: inline; width: auto;" );
-		for( Option option : getDetailsForm().getStartTerm () )
-		{
-			element( "option" );
-			String value = option.getValue();
-			if( hasText( value ))
-			{
-				attribute( "value", value );
-			}
-			if( option.getSelected() )
-			{
-				attribute( "selected", "selected" );
-			}
-			text( option.getText() );
-			pop();
-		}
+		text( "\n                " );
 		pop();
-		text( "\n\t\t\t\t" );
+		text( "\n            " );
 		pop();
-		text( "\n\t\t\t" );
-		pop();
-		text( "\n\n\t\t\t" );
+		text( "\n\n            " );
 		element( "div" );
 		attribute( "class", "form-group" );
 		text( "\n\t\t\t\t" );
 		element( "label" );
 		attribute( "class", "col-sm-2 control-label" );
-		text( "End Term" );
+		text( "Last" );
 		pop();
 		text( "\n\t\t\t    " );
 		element( "div" );
-		attribute( "class", "col-sm-8" );
-		text( "\n\t\t\t\t\t" );
+		attribute( "class", "col-sm-3" );
+		text( "\n                    " );
 		element( "input" );
 		attribute( "type", "text" );
 		attribute( "class", "form-control" );
-		attribute( "style", "display: inline; width: auto;" );
 		attribute( "name", "endYear" );
 		attribute( "placeholder", "9999" );
 		attribute( "size", "4" );
 		attribute( "value", getDetailsForm().getEndYear() );
 		pop();
+		text( "\n\t\t\t\t" );
+		pop();
+		text( "\n\t\t\t" );
+		pop();
+		text( "\n\t\t\t\n\t\t\t" );
+		element( "div" );
+		attribute( "class", "form-group" );
+		text( "\n\t\t\t\t" );
+		element( "label" );
+		attribute( "class", "col-sm-2 control-label" );
+		text( "Terms" );
+		pop();
+		text( "\n\t\t\t    " );
+		element( "div" );
+		attribute( "class", "col-sm-3" );
 		text( "\n\t\t\t\t\t" );
 		element( "select" );
-		attribute( "class", "form-control" );
-		attribute( "name", "endTerm" );
-		attribute( "style", "display: inline; width: auto;" );
-		for( Option option : getDetailsForm().getEndTerm() )
-		{
-			element( "option" );
-			String value = option.getValue();
-			if( hasText( value ))
-			{
-				attribute( "value", value );
-			}
-			if( option.getSelected() )
-			{
-				attribute( "selected", "selected" );
-			}
-			text( option.getText() );
-			pop();
-		}
+		attribute( "multiple", "multiple" );
+		attribute( "class", "form-control selectpicker" );
+		attribute( "name", "terms" );
+		render( getDetailsForm().getTerms() );
 		pop();
 		text( "\n\t\t\t\t" );
 		pop();
 		text( "\n\t\t\t" );
 		pop();
-		text( "\n\n\t\t\t" );
+		text( "\n\t\t\t\n\t\t\t" );
+		element( "div" );
+		attribute( "class", "form-group" );
+		text( "\n\t\t\t\t" );
+		element( "label" );
+		attribute( "class", "col-sm-2 control-label" );
+		text( "Years" );
+		pop();
+		text( "\n\t\t\t    " );
+		element( "div" );
+		attribute( "class", "col-sm-3" );
+		text( "\n\t\t\t\t\t" );
+		element( "select" );
+		attribute( "class", "form-control selectpicker" );
+		attribute( "name", "years" );
+		render( getDetailsForm().getYears() );
+		pop();
+		text( "\n\t\t\t\t" );
+		pop();
+		text( "\n\t\t\t" );
+		pop();
+		text( "\n            " );
 		element( "div" );
 		attribute( "class", "form-group" );
 		text( "\n\t\t\t\t" );
@@ -488,6 +446,29 @@ public class Details extends Page
 		pop();
 		text( "\n\t\t\t    " );
 		element( "div" );
+		attribute( "class", "col-sm-6" );
+		text( "\n\t\t\t\t\t" );
+		element( "select" );
+		attribute( "multiple", "multiple" );
+		attribute( "class", "form-control selectpicker" );
+		attribute( "name", "geneds" );
+		attribute( "title", "Choose all that apply..." );
+		render( getDetailsForm().getGeneds() );
+		pop();
+		text( "\n\t\t\t\t" );
+		pop();
+		text( "\n\t\t\t" );
+		pop();
+		text( "\n\t\t\t\n\t\t\t" );
+		element( "div" );
+		attribute( "class", "form-group" );
+		text( "\n\t\t\t\t" );
+		element( "label" );
+		attribute( "class", "col-sm-2 control-label" );
+		text( " " );
+		pop();
+		text( "\n\t\t\t    " );
+		element( "div" );
 		attribute( "class", "col-sm-8" );
 		text( "\n\t\t\t\t\t" );
 		element( "label" );
@@ -495,112 +476,14 @@ public class Details extends Page
 		text( "\n\t\t\t\t\t\t" );
 		element( "input" );
 		attribute( "type", "checkbox" );
-		attribute( "name", "gened_is" );
-		attribute( "value", "is" );
-		if( getDetailsForm().getGened_is() ) {
+		attribute( "name", "publish" );
+		attribute( "value", "publish" );
+		if( getDetailsForm().getPublish() ) {
 			attribute( "checked" );
 		}
 		pop();
 		text( "\n\t\t\t\t\t\t" );
-		text( "Individuals" );
-		text( " " );
-		text( "& Societies" );
-		text( "\n\t\t\t\t\t" );
-		pop();
-		text( "\n\t\t\t\t\t" );
-		element( "label" );
-		attribute( "class", "checkbox" );
-		text( "\n\t\t\t\t\t\t" );
-		element( "input" );
-		attribute( "type", "checkbox" );
-		attribute( "name", "gened_nw" );
-		attribute( "value", "nw" );
-		if( getDetailsForm().getGened_nw() ) {
-			attribute( "checked" );
-		}
-		pop();
-		text( "\n\t\t\t\t\t\t" );
-		text( "The Natural World" );
-		text( "\n\t\t\t\t\t" );
-		pop();
-		text( "\n\t\t\t\t\t" );
-		element( "label" );
-		attribute( "class", "checkbox" );
-		text( "\n\t\t\t\t\t\t" );
-		element( "input" );
-		attribute( "type", "checkbox" );
-		attribute( "name", "gened_vpla" );
-		attribute( "value", "vlpa" );
-		if( getDetailsForm().getGened_vpla() ) {
-			attribute( "checked" );
-		}
-		pop();
-		text( "\n\t\t\t\t\t\t" );
-		text( "Visual, Literary, and Performing Arts" );
-		text( "\n\t\t\t\t\t" );
-		pop();
-		text( "\n\t\t\t\t\t" );
-		element( "label" );
-		attribute( "class", "checkbox" );
-		text( "\n\t\t\t\t\t\t" );
-		element( "input" );
-		attribute( "type", "checkbox" );
-		attribute( "name", "gened_writing" );
-		attribute( "value", "writing" );
-		if( getDetailsForm().getGened_writing() ) {
-			attribute( "checked" );
-		}
-		pop();
-		text( "\n\t\t\t\t\t\t" );
-		text( "Additional Writing" );
-		text( "\n\t\t\t\t\t" );
-		pop();
-		text( "\n\t\t\t\t\t" );
-		element( "label" );
-		attribute( "class", "checkbox" );
-		text( "\n\t\t\t\t\t\t" );
-		element( "input" );
-		attribute( "type", "checkbox" );
-		attribute( "name", "gened_div" );
-		attribute( "value", "div" );
-		if( getDetailsForm().getGened_div() ) {
-			attribute( "checked" );
-		}
-		pop();
-		text( "\n\t\t\t\t\t\t" );
-		text( "Diversity" );
-		text( "\n\t\t\t\t\t" );
-		pop();
-		text( "\n\t\t\t\t\t" );
-		element( "label" );
-		attribute( "class", "checkbox" );
-		text( "\n\t\t\t\t\t\t" );
-		element( "input" );
-		attribute( "type", "checkbox" );
-		attribute( "name", "gened_comp" );
-		attribute( "value", "comp" );
-		if( getDetailsForm().getGened_comp() ) {
-			attribute( "checked" );
-		}
-		pop();
-		text( "\n\t\t\t\t\t\t" );
-		text( "English Composition" );
-		text( "\n\t\t\t\t\t" );
-		pop();
-		text( "\n\t\t\t\t\t" );
-		element( "label" );
-		attribute( "class", "checkbox" );
-		text( "\n\t\t\t\t\t\t" );
-		element( "input" );
-		attribute( "type", "checkbox" );
-		attribute( "name", "gened_qsr" );
-		attribute( "value", "qsr" );
-		if( getDetailsForm().getGened_qsr() ) {
-			attribute( "checked" );
-		}
-		pop();
-		text( "\n\t\t\t\t\t\t" );
-		text( "Quantitative, Symbolic, or Formal Reasoning" );
+		text( "Publish in Course Catalog" );
 		text( "\n\t\t\t\t\t" );
 		pop();
 		text( "\n\t\t\t\t" );
@@ -611,8 +494,31 @@ public class Details extends Page
 		element( "div" );
 		attribute( "class", "form-group" );
 		text( "\n\t\t\t\t" );
+		element( "label" );
+		attribute( "class", "col-sm-2 control-label" );
+		text( "Instructor" );
+		pop();
+		text( "\n\t\t\t    " );
 		element( "div" );
-		attribute( "class", "col-sm-offset-2 col-sm-8" );
+		attribute( "class", "col-sm-8" );
+		text( "\n                    " );
+		element( "input" );
+		attribute( "type", "text" );
+		attribute( "class", "form-control" );
+		attribute( "name", "instructors" );
+		attribute( "placeholder", "this needs a combobox" );
+		attribute( "value", getDetailsForm().getInstructors() );
+		pop();
+		text( "\n\t\t\t\t" );
+		pop();
+		text( "\n\t\t\t" );
+		pop();
+		text( "\n\t\t\t\n\t\t\t" );
+		element( "div" );
+		attribute( "class", "form-group" );
+		text( "\n\t\t\t\t" );
+		element( "div" );
+		attribute( "class", "col-sm-offset-4 col-sm-4" );
 		text( "\n\t\t\t\t\t" );
 		element( "button" );
 		attribute( "type", "submit" );
@@ -633,6 +539,13 @@ public class Details extends Page
 		pop();
 		text( "\n\t" );
 		pop();
+		text( "\n    " );
+		element( "script" );
+		attribute( "type", "text/javascript" );
+		text( "\n        " );
+		text( "$('.selectpicker').selectpicker();" );
+		text( "\n    " );
+		pop();
 		text( "\n" );
 		pop();
 		pop();
@@ -641,29 +554,26 @@ public class Details extends Page
 	@Override
 	public void populateForm( Map<String,String[]> params )
 	{
-		getDetailsForm().getCampus().setValue( getRequestParameter( params, "campus" )); 
-		getDetailsForm().getCollege().setValue( getRequestParameter( params, "college" )); 
-		getDetailsForm().getDept().setValue( getRequestParameter( params, "dept" )); 
-		getDetailsForm().setAbbrev( getRequestParameter( params, "abbrev" )); 
+		getDetailsForm().getCampus().setValue( getRequestParameters( params, "campus" )); 
+		getDetailsForm().getCollege().setValue( getRequestParameters( params, "college" )); 
+		getDetailsForm().getDept().setValue( getRequestParameters( params, "dept" )); 
+		getDetailsForm().getCurric().setValue( getRequestParameters( params, "curric" )); 
 		getDetailsForm().setNumber( getRequestParameter( params, "number" )); 
 		getDetailsForm().setCatalog( getRequestParameter( params, "catalog" )); 
 		getDetailsForm().setTranscript( getRequestParameter( params, "transcript" )); 
 		getDetailsForm().setDescription( getRequestParameter( params, "description" )); 
-		getDetailsForm().getCredits().setValue( getRequestParameter( params, "credits" )); 
+		getDetailsForm().getCredits().setValue( getRequestParameters( params, "credits" )); 
 		getDetailsForm().setCreditsMin( getRequestParameter( params, "creditsMin" )); 
 		getDetailsForm().setCreditsMax( getRequestParameter( params, "creditsMax" )); 
-		getDetailsForm().getGrading().setValue( getRequestParameter( params, "grading" )); 
+		getDetailsForm().setCreditsRepeatable( getRequestParameter( params, "creditsRepeatable" )); 
+		getDetailsForm().getGrading().setValue( getRequestParameters( params, "grading" )); 
 		getDetailsForm().setStartYear( getRequestParameter( params, "startYear" )); 
-		getDetailsForm().getStartTerm ().setValue( getRequestParameter( params, "startTerm " )); 
 		getDetailsForm().setEndYear( getRequestParameter( params, "endYear" )); 
-		getDetailsForm().getEndTerm().setValue( getRequestParameter( params, "endTerm" )); 
-		getDetailsForm().setGened_is( hasRequestParameter( params, "gened_is" )); 
-		getDetailsForm().setGened_nw( hasRequestParameter( params, "gened_nw" )); 
-		getDetailsForm().setGened_vpla( hasRequestParameter( params, "gened_vpla" )); 
-		getDetailsForm().setGened_writing( hasRequestParameter( params, "gened_writing" )); 
-		getDetailsForm().setGened_div( hasRequestParameter( params, "gened_div" )); 
-		getDetailsForm().setGened_comp( hasRequestParameter( params, "gened_comp" )); 
-		getDetailsForm().setGened_qsr( hasRequestParameter( params, "gened_qsr" )); 
+		getDetailsForm().getTerms().setValue( getRequestParameters( params, "terms" )); 
+		getDetailsForm().getYears().setValue( getRequestParameters( params, "years" )); 
+		getDetailsForm().getGeneds().setValue( getRequestParameters( params, "geneds" )); 
+		getDetailsForm().setPublish( hasRequestParameter( params, "publish" )); 
+		getDetailsForm().setInstructors( getRequestParameter( params, "instructors" )); 
 		getDetailsForm().setId( getRequestParameter( params, "id" )); 
 	}
 }

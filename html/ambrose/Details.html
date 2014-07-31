@@ -4,27 +4,30 @@
 	<meta charset="utf-8">
 	<title>Course</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="assets/css/bootstrap.css" rel="stylesheet">
-		<style>
-.unreadable {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;   
-    border-color: transparent;
-}
-</style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/bootstrap-select/bootstrap-select.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/bootstrap-select/bootstrap-select.css">
+    <style>
+        .inlined {
+            display:inline;
+        }
+        .gap {
+            margin-left:4px;
+        }
+    </style>
 </head>
 <body>
+
+
 	<div class="container">
 		<h1 class="col-sm-offset-2">Course Details</h1>
 		<form martini="Details" method="post" class="form-horizontal" role="form">
-
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Campus</label>
-			    <div class="col-xs-3">
-					<select name="campus" class="form-control unreadable">
+			    <div class="col-sm-3">
+					<select name="campus" class="form-control selectpicker">
 						<option value="0" selected="selected">Seattle</option>
 						<option value="1">Tacoma</option>
 						<option value="2">Bothell</option>
@@ -34,63 +37,56 @@
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">College</label>
-			    <div class="col-xs-3">
-					<select name="college" class="form-control">
-						<option selected="selected">Arts & Sciences</option>
+			    <div class="col-sm-3">
+					<select name="college" class="form-control selectpicker">
+						<option value="0" selected="selected">Arts & Sciences</option>
 						<option>Built Environments</option>
-						<option>Business</option>
-						<option>Dentistry</option>
-						<option>Education</option>
-						<option>Engineering</option>
-						<option>Environment</option>
-						<option>Forest Resources</option>
-						<option>Information School</option>
-						<option>Law</option>
-						<option>Medicine</option>
-						<option>Nursing</option>
-						<option>Ocean & Fishery Sciences</option>
-						<option>Pharmacy</option>
-						<option>Public Affairs</option>
-						<option>Public Health</option>
-						<option>Social Work</option>
 					</select>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Department</label>
-			    <div class="col-xs-3">
-					<select name="dept" class="form-control">
+			    <div class="col-sm-3">
+					<select name="dept" class="form-control selectpicker">
 						<option selected="selected">Arts</option>
 						<option>Biology</option>
 						<option>Chemistry</option>
 						<option>Dance</option>
-						<option>English</option>
+						<option data-abbrev="ENGL">English (ENGL)</option>
 						<option>History</option>
 						<option>Physics</option>
 					</select>
 				</div>
 			</div>
-			
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Code</label>
-			    <div class="col-xs-4">
-					<input type="text" style="display: inline; width: 40%;" class="form-control unreadable" name="abbrev" placeholder="ENGL" value="" />
-					<input type="text" style="display: inline; width: 40%;" class="form-control" name="number" placeholder="000" value="" />
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Course</label>
+                <div class="col-sm-6">
+                    <select name="curric" data-width="45%" class="form-control selectpicker">
+                        <option selected="selected">Arts</option>
+                        <option>Biology</option>
+                        <option>Chemistry</option>
+                        <option>Dance</option>
+                        <option>English</option>
+                        <option>History</option>
+                        <option>Physics</option>
+                    </select>
+                    <input type="text" class="form-control inlined gap" style="width:45%;" name="number" placeholder="000" value="" />
+                </div>
+            </div>
+
+            <div class="form-group">
+				<label class="col-sm-2 control-label">Titles</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="catalog" placeholder="Used for online course catalog" value="" />
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Catalog</label>
+				<label class="col-sm-2 control-label"> </label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="catalog" placeholder="Catalog title" value="" />
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-sm-2 control-label">Transcript</label>
-				<div class="col-sm-10">
-					<input type="text" class="form-control" name="transcript" placeholder="Transcript title, max 40 chars" value="">
+					<input type="text" class="form-control" name="transcript" placeholder="Used for transcript, max 40 chars" value="">
 				</div>
 			</div>
 			
@@ -103,89 +99,102 @@
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Credits</label>
-			    <div class="col-xs-9">
-					<select style="display: inline; width: auto;" name="credits" class="form-control">
-						<option value="0" selected="selected">Fixed</option>
-						<option value="1">Range</option>
-						<option value="2">Multiple</option>
-					</select>
-					<input type="text" style="display: inline; width: 10%;" class="form-control" name="creditsMin" placeholder="1" size="2" value="">
-					<input type="text" style="display: inline; width: 10%;" class="form-control" name="creditsMax" placeholder="1" size="2" value="">
+			    <div class="col-sm-6">
+                    <select name="credits" data-width="45%" class="form-control selectpicker">
+                        <option value="0" selected="selected">Fixed</option>
+                        <option value="1">Range</option>
+                        <option value="2">Multiple</option>
+                    </select>
+                    <input type="text" class="form-control inlined gap" style="width:10%;" name="creditsMin" placeholder="1" size="2" value="">
+                    <input type="text" class="form-control inlined" style="width:10%;" name="creditsMax" placeholder="1" size="2" value="">
+                    <input type="text" class="form-control inlined" style="width:10%;" name="creditsRepeatable" placeholder="1" size="2" value="">
 				</div>
 			</div>
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Grading</label>
-			    <div class="col-xs-3">
-					<select name="grading" style="width: auto;" class="form-control">
+			    <div class="col-sm-3">
+					<select name="grading" class="form-control selectpicker">
 						<option value="0" selected="selected">Standard</option>
 						<option value="1">Credit / No credit</option>
 					</select>
 				</div>
 			</div>
 
+            <div class="form-group">
+                <label class="col-sm-2 control-label">First</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="startYear" placeholder="2013" size="4" value="">
+                </div>
+            </div>
+
+            <div class="form-group">
+				<label class="col-sm-2 control-label">Last</label>
+			    <div class="col-sm-3">
+                    <input type="text" class="form-control" name="endYear" placeholder="9999" size="4" value="">
+				</div>
+			</div>
+			
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Start Term</label>
-			    <div class="col-sm-8">
-					<input type="text" style="display: inline; width: auto;" class="form-control" name="startYear" size="4" placeholder="2013" value="">
-					<select name="startTerm " style="display: inline; width: auto;" class="form-control">
-						<option value="1" selected="selected">Autumn</option>
-						<option value="2">Winter</option>
-						<option value="3">Spring</option>
-						<option value="4">Summer</option>
+				<label class="col-sm-2 control-label">Terms</label>
+			    <div class="col-sm-3">
+					<select name="terms" multiple class="form-control selectpicker">
+                        <option selected data-abbrev="A" value="1">Autumn</option>
+                        <option selected data-abbrev="W" value="2">Winter</option>
+                        <option selected data-abbrev="Sp" value="3">Spring</option>
+                        <option selected data-abbrev="S" value="4">Summer</option>
 					</select>
 				</div>
 			</div>
-
+			
 			<div class="form-group">
-				<label class="col-sm-2 control-label">End Term</label>
-			    <div class="col-sm-8">
-					<input type="text" style="display: inline; width: auto;" class="form-control" name="endYear" placeholder="9999" size="4" value="">
-					<select name="endTerm" style="display: inline; width: auto;" class="form-control">
-						<option value="1" selected="selected">Autumn</option>
-						<option value="2">Winter</option>
-						<option value="3">Spring</option>
-						<option value="4">Summer</option>
+				<label class="col-sm-2 control-label">Years</label>
+			    <div class="col-sm-3">
+					<select name="years" class="form-control selectpicker">
+						<option value="ALL">All</option>
+						<option value="ODD">Odd only</option>
+						<option value="EVEN">Even only</option>
 					</select>
 				</div>
 			</div>
-
-			<div class="form-group">
+            <div class="form-group">
 				<label class="col-sm-2 control-label">Gen Ed Reqs</label>
+			    <div class="col-sm-6">
+					<select name="geneds" multiple title="Choose all that apply..." class="form-control selectpicker">
+						<option data-abbrev="Div" value="DIV">Diversity</option>
+						<optgroup label="Areas of Knowledge">
+						<option data-abbrev="I&amp;S" value="IS">Individuals &amp; Societies</option>
+						<option data-abbrev="NW" value="NW">The Natural World</option>
+						<option data-abbrev="VPLA" value="VLPA">Visual, Literary, and Performing Arts</option>
+						</optgroup>
+                        <optgroup label="Misc">
+						<option data-abbrev="Writing" value="WRITING">Additional Writing</option>
+						<option data-abbrev="Comp" value="COMP">English Composition</option>
+						<option data-abbrev="QSR" value="QSR">Quantitative, Symbolic, or Formal Reasoning</option>
+                        </optgroup>
+					</select>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-2 control-label"> </label>
 			    <div class="col-sm-8">
 					<label class="checkbox">
-						<input type="checkbox" name="gened_is" value="is" />
-						Individuals &amp; Societies
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" name="gened_nw" value="nw" />
-						The Natural World
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" name="gened_vpla" value="vlpa" />
-						Visual, Literary, and Performing Arts
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" name="gened_writing" value="writing" />
-						Additional Writing
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" name="gened_div" value="div" />
-						Diversity
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" name="gened_comp" value="comp" />
-						English Composition
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" name="gened_qsr" value="qsr" />
-						Quantitative, Symbolic, or Formal Reasoning
+						<input type="checkbox" name="publish" value="publish" checked="checked" />
+						Publish in Course Catalog
 					</label>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<div class="col-sm-offset-2 col-sm-8">
+				<label class="col-sm-2 control-label">Instructor</label>
+			    <div class="col-sm-8">
+                    <input type="text" class="form-control" name="instructors" placeholder="this needs a combobox" value="">
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-4">
 					<button type="submit" class="btn">Save</button>
 				</div>
 			</div>
@@ -193,5 +202,8 @@
 			
 		</form>
 	</div>
+    <script type="text/javascript">
+        $('.selectpicker').selectpicker();
+    </script>
 </body>
 </html>

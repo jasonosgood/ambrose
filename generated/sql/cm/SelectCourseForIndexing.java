@@ -1,6 +1,6 @@
 /**
 
-SelectCourseForIndexing.java   Tue Dec 10 10:42:52 PST 2013
+SelectCourseForIndexing.java   Wed Jul 30 06:47:32 PDT 2014
   
 Generated using Fado's Select.vm template. Original SQL:
     
@@ -32,66 +32,54 @@ import java.math.BigDecimal;
 public class 
 	SelectCourseForIndexing
 {
-	private int __resultSetType = ResultSet.TYPE_SCROLL_INSENSITIVE;
-	
-	public void setResultSetType( int resultSetType )
-	{
-		__resultSetType = resultSetType;
-	}
-	
-	public int getResultSetType()
-	{
-		return __resultSetType;
-	}
-	
-	private int __resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
-
-	public void setResultSetConcurrency( int resultSetConcurrency )
-	{
-		__resultSetConcurrency = resultSetConcurrency;
-	}
-	
-	public int getResultSetConcurrency()
-	{
-		return __resultSetConcurrency;
-	}
-	
+	PreparedStatement __ps = null;
 
 	/**
-		Pass a Connection instance, you are responsible for closing it, method SelectCourseForIndexingResultSet.close()
-		WILL NOT call that instance's Connection.close() method. 
-		 
+		Pass a Connection. You are responsible for closing that Connection. 
+		SelectCourseForIndexing is a wrapper for a PreparedStatement, not a Connection.
 	**/
-	public final SelectCourseForIndexingResultSet execute( Connection connection )
+	public SelectCourseForIndexing( Connection connection, int resultSetType, int resultSetConcurrency )
 		throws SQLException
 	{
 		String sql = getSQL();
-		PreparedStatement ps = connection.prepareStatement( sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
-			
-		ps.setInt( 1, getLastATP() );
+		__ps = connection.prepareStatement( sql, resultSetType, resultSetConcurrency );
+	}
+
+	public SelectCourseForIndexing( Connection connection )
+		throws SQLException
+	{
+		this( connection, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
+	}
+	
+	/**
+		Pass a DataSource. You are responsible for closing that DataSource. 
+		SelectCourseForIndexing is a wrapper for a PreparedStatement, not a Connection.
+	**/
+	public SelectCourseForIndexing( DataSource dataSource, int resultSetType, int resultSetConcurrency )
+		throws SQLException
+	{
+		this( dataSource.getConnection(), resultSetType, resultSetConcurrency );
+	}
+
+	public SelectCourseForIndexing( DataSource dataSource )
+		throws SQLException
+	{
+		this( dataSource, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
+	}
+		
+	public final SelectCourseForIndexingResultSet execute()
+		throws SQLException
+	{
+		__ps.setInt( 1, getLastATP() );
 			
 		ResultSet rs = null;
-		if( ps.execute() )
+		if( __ps.execute() )
 		{
-			rs = ps.getResultSet();
+			rs = __ps.getResultSet();
 		}
 		SelectCourseForIndexingResultSet result = new SelectCourseForIndexingResultSet( rs );
 		return result;
 	}
-
-	/**
-		Pass a DataSource, a Connection instance is created, method SelectCourseForIndexingResultSet.close() WILL 
-		also call that instance's Connection.close() method. 
-	**/
-	public final SelectCourseForIndexingResultSet execute( DataSource dataSource )
-		throws SQLException
-	{
-		Connection connection = dataSource.getConnection();
-		SelectCourseForIndexingResultSet result = execute( connection );
-		result.setConnection( connection );
-		return result;
-	}
-
 
 
 	public int _lastATP = 99994;

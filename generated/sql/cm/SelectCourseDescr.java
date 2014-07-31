@@ -1,6 +1,6 @@
 /**
 
-SelectCourseDescr.java   Tue Dec 10 10:42:51 PST 2013
+SelectCourseDescr.java   Wed Jul 30 06:47:32 PDT 2014
   
 Generated using Fado's Select.vm template. Original SQL:
     
@@ -25,67 +25,55 @@ import java.math.BigDecimal;
 public class 
 	SelectCourseDescr
 {
-	private int __resultSetType = ResultSet.TYPE_SCROLL_INSENSITIVE;
-	
-	public void setResultSetType( int resultSetType )
-	{
-		__resultSetType = resultSetType;
-	}
-	
-	public int getResultSetType()
-	{
-		return __resultSetType;
-	}
-	
-	private int __resultSetConcurrency = ResultSet.CONCUR_READ_ONLY;
-
-	public void setResultSetConcurrency( int resultSetConcurrency )
-	{
-		__resultSetConcurrency = resultSetConcurrency;
-	}
-	
-	public int getResultSetConcurrency()
-	{
-		return __resultSetConcurrency;
-	}
-	
+	PreparedStatement __ps = null;
 
 	/**
-		Pass a Connection instance, you are responsible for closing it, method SelectCourseDescrResultSet.close()
-		WILL NOT call that instance's Connection.close() method. 
-		 
+		Pass a Connection. You are responsible for closing that Connection. 
+		SelectCourseDescr is a wrapper for a PreparedStatement, not a Connection.
 	**/
-	public final SelectCourseDescrResultSet execute( Connection connection )
+	public SelectCourseDescr( Connection connection, int resultSetType, int resultSetConcurrency )
 		throws SQLException
 	{
 		String sql = getSQL();
-		PreparedStatement ps = connection.prepareStatement( sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
-			
-		ps.setString( 1, getDepartment_abbrev() );
-		ps.setInt( 2, getCourse_number() );
+		__ps = connection.prepareStatement( sql, resultSetType, resultSetConcurrency );
+	}
+
+	public SelectCourseDescr( Connection connection )
+		throws SQLException
+	{
+		this( connection, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
+	}
+	
+	/**
+		Pass a DataSource. You are responsible for closing that DataSource. 
+		SelectCourseDescr is a wrapper for a PreparedStatement, not a Connection.
+	**/
+	public SelectCourseDescr( DataSource dataSource, int resultSetType, int resultSetConcurrency )
+		throws SQLException
+	{
+		this( dataSource.getConnection(), resultSetType, resultSetConcurrency );
+	}
+
+	public SelectCourseDescr( DataSource dataSource )
+		throws SQLException
+	{
+		this( dataSource, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY );
+	}
+		
+	public final SelectCourseDescrResultSet execute()
+		throws SQLException
+	{
+		__ps.setString( 1, getDepartment_abbrev() );
+		__ps.setInt( 2, getCourse_number() );
 			
 		ResultSet rs = null;
-		if( ps.execute() )
+		if( __ps.execute() )
 		{
-			rs = ps.getResultSet();
+			rs = __ps.getResultSet();
 		}
 		SelectCourseDescrResultSet result = new SelectCourseDescrResultSet( rs );
 		return result;
 	}
-
-	/**
-		Pass a DataSource, a Connection instance is created, method SelectCourseDescrResultSet.close() WILL 
-		also call that instance's Connection.close() method. 
-	**/
-	public final SelectCourseDescrResultSet execute( DataSource dataSource )
-		throws SQLException
-	{
-		Connection connection = dataSource.getConnection();
-		SelectCourseDescrResultSet result = execute( connection );
-		result.setConnection( connection );
-		return result;
-	}
-
 
 
 	public java.lang.String _department_abbrev = "ENGL";

@@ -1,6 +1,6 @@
 /**
 
-SelectCourseDescrResultSet.java   Tue Dec 10 10:42:51 PST 2013
+SelectCourseDescrResultSet.java   Wed Jul 30 06:47:32 PDT 2014
   
 Generated using Fado's ResultSet.vm template. Original SQL:
     

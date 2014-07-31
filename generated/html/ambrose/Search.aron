@@ -18,18 +18,18 @@ page:Search
 	[
 		SearchResultsItem
 		(
-			description "Focuses on theories in second language acquisition..."
-			course "B EDUC 541"
-			catalog "SECOND LANGUAGE ACQUISITION, BILINGUAL EDUCATION, AND THE STRUCTURE OF ENGLISH"
 			link ""
 			linkHref "/course"
+			course "B EDUC 541"
+			catalog "SECOND LANGUAGE ACQUISITION, BILINGUAL EDUCATION, AND THE STRUCTURE OF ENGLISH"
+			description "Focuses on theories in second language acquisition..."
 		)
 	]
 	pages
 	[
 		SearchPagesItem
 		(
-			nth "?"
+			nth "«"
 			nthHref "#"
 		)
 		SearchPagesItem
@@ -59,7 +59,7 @@ page:Search
 		)
 		SearchPagesItem
 		(
-			nth "?"
+			nth "»"
 			nthHref "#"
 		)
 	]

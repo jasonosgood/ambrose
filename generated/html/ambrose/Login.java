@@ -2,6 +2,7 @@ package ambrose;
 // Generated from null -- DO NOT MODIFY
 
 import martini.model.Page;
+import martini.HTMLBuilder;
 import martini.model.*;
 import static martini.util.Util.hasText;
 import java.util.List;
